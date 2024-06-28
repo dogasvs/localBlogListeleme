@@ -1,68 +1,50 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Blog</title>
   <link rel="stylesheet" href="assets/css/blog.css">
   <script src="assets/js/blog.js" defer></script>
 </head>
 <body>
 
-  <form class="blogpage">
+  <div class="container">
+    <header class="blogHeader">
+      <h1>Blog Ekleme Sayfası</h1>
+      <button id="addBlogBtn" class="addBlogBtn">Ekle</button>
+    </header>
 
-    <div class="catagory-item">
-      <label class="baslik" for="baslik">Başlık: </label>
-      <input required type="text" class="baslik" name="baslik" placeholder="Başlık">
-    </div>
+    <div class="blogPagelist" id="blogContainer"></div>
 
-    <div class="catagory-item">
-      <label class="aciklama" for="aciklama">Açıklama: </label>
-      <input required type="text" class="aciklama" name="aciklama" placeholder="Açıklama">
-    </div>
-
-    <div class="catagory-item">
-      <label class="yazar" for="yazar">Yazar: </label>
-      <input type="text" class="yazar" name="yazar" placeholder="Yazar">
-    </div>
-
-    <div class="catagory-item">
-      <label class="catagory" for="katagori">Katagori: </label>
-        <select required name="katagori" id="katagori">
-          <option selected value=""disabled >Katagori Seçiniz</option>
-          <option value="Yapay Zeka">Yapay Zeka ve İnovasyon</option>
-          <option value="Sağlık">Sağlık ve Zindelik</option>
-          <option value="Gezi">Seyahat ve Gezi</option>
-          <option value="Kişisel Gelişim">Kariyer ve Kişisel Gelişim</option>
-          <option value="Moda">Moda ve Güzellik</option>
+    <dialog id="modal">
+      <h2 class="modalAddNew">Blog Ekle</h2>
+      <h2 class="modalEdit"></h2>
+      
+      <form method="dialog" autocomplete="off" id="blogForm">
+        <label for="title">Başlık</label> <input type="text" name="title">
+        <label for="content">İçerik</label> <input type="text" name="content">
+        <label for="about">Yazar</label> <input type="text" name="about">
+        <label for="category">Kategori</label>
+        <select for="category" id="category" name="category">Kategori Seçiniz:
+          <option name="category" id="category">Moda</option>
+          <option name="teknoloji" id="teknoloji">Teknoloji</option>
+          <option name="gezi" id="gezi">Gezi</option>
+          <option name="yemek" id="yemek">Yemek</option>
+          <option name="kitap" id="kitap">Kitap</option>
         </select>
-    </div>
 
-    <div class="catagory-item">
-      <label class="Görsel" for="görsel">Görsel: </label>
-      <input type="file" class="Görsel" name="görsel" placeholder="Görsel">
-    </div>
+        <label for="img">Görsel</label> <input type="text" name="img" value="https://picsum.photos/id/237/200/200">
 
-    <button class="add" type="submit">Ekle</button>
-    <button class="delete">Sıfırla</button>
+        <button class="modalAddNew">Ekle</button>
+        <button class="modalEdit">Düzenle</button>
+        <button type="button" class="vazgec" onclick="blogForm.reset();modal.close();">Vazgeç</button>
+        <input type="hidden" name="id" value="">
+      </form>
+    </dialog>
 
-  </form>
 
- 
-  <div class="blogListe">
-    <h3>Yapay Zeka ve İnovasyon Blogları: </h3>
-    <div class="yapayzeka"></div>
-    <h3>Sağlık ve Zindelik Blogları: </h3>
-    <div class="saglik"></div>
-    <h3>Seyahat ve Gezi: </h3>
-    <div class="gezi"></div>
-    <h3>Kariyer ve Kişisel Gelişim: </h3>
-    <div class="kisiselGelisim"></div>
-    <h3>Moda ve Güzellik: </h3>
-    <div class="moda"></div>
   </div>
-  
-
   
 </body>
 </html>
